@@ -1,0 +1,105 @@
+@mixin class-container($size-title, $size-card) {
+    display: grid;
+    grid-template-rows: 10% 90%;
+    height: 100vh;
+    width: 100vw;
+    padding: 5%;
+    background-image: url(../../assets/images/3rd-wallpaper.jpg);
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .text {
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: $size-title;
+        }
+    }
+    .cards {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+        width: 100%;
+        height: 100%;
+        background-color: #B0BEC5;
+        overflow-y: auto;
+        border: 10px solid #000;
+        .card {
+            width: 100%;
+            height: $size-card;
+            max-height: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            text-align: center;
+            .mat-card-header {
+                justify-content: center;
+                .mat-card-title {
+                    font-family: monospace;
+                    font-weight: bold;
+                }
+            }
+            .mat-card-image {
+                height: 75%;
+                width: auto;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    %container-es { @include class-container(130%, 11rem); }
+
+    .grid-container {
+        @extend %container-es;
+        
+    }
+
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    %container-sd { @include class-container(200%, 11rem); }
+
+    .grid-container {
+        @extend %container-sd;
+        
+    }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    %container-md { @include class-container(200%, 100%); }
+
+    .grid-container {
+        @extend %container-md;
+        
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    %container-ld { @include class-container(200%, 100%); }
+
+    .grid-container {
+        @extend %container-ld;
+        
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    %container-el { @include class-container(200%, 100%); }
+
+    .grid-container {
+        @extend %container-el;
+        
+    }
+
+}

@@ -1,0 +1,46 @@
+<div class="grid-container">
+    <div class="header">
+        <div class="title">
+            <h1 class="name">BrayanCore</h1>
+        </div>
+        <div class="social-media">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <a href="https://www.facebook.com/brayan.huerta.16/"><i class="socialIcons fa fa-3x fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/brayan.huerta.16/?hl=en"><i style="color: #AB12BB;" class="socialIcons fa fa-3x fa-instagram"></i></a>
+            <a href="https://wa.me/8120786890"><i style="color: #12BB15;" class="socialIcons fa fa-3x fa-whatsapp"></i></a>
+            <button class="burger" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon class="icon">more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <a href="#whoIAm">
+                    <button mat-menu-item>
+                        <mat-icon>help_outline</mat-icon>
+                        <span style="color:black; filter: blur(0)">¿Quién soy?</span>
+                    </button>
+                </a>
+                <a href="#myStack">
+                    <button mat-menu-item>
+                        <mat-icon>devices</mat-icon>
+                        <span style="color:black; filter: blur(0)">Tecnologías</span>
+                    </button>
+                </a>
+                <a href="#myProjects">
+                    <button mat-menu-item>
+                        <mat-icon>work</mat-icon>
+                        <span style="color:black; filter: blur(0)">Proyectos</span>
+                    </button>
+                </a>
+            </mat-menu>
+        </div>
+    </div>
+    <div class="body">
+        <div class="info">
+            <div class="outer-circle">
+                <div class="inner-circle">
+                    <h1 class="text">BRAYAN MORALES</h1>
+                </div>
+            </div>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">settings_ethernet</mat-icon>
+        </div>
+    </div>
+</div>

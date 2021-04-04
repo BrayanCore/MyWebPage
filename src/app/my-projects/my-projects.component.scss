@@ -1,0 +1,138 @@
+@mixin class-container {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-rows: 20% 80%;
+    background-image: url(../../assets/images/4th-wallpaper.jpg);
+}
+
+@mixin class-title($position, $size) {
+    text-align: center;
+    align-self: $position;
+    font-size: $size;
+    color: white;
+}
+
+@mixin class-projects($size-image, $size-button, $right-button) {
+
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .image {
+        cursor: pointer;
+        background-color: white;
+        border:10px solid black;
+        border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232d3561' /%3E%3Cstop offset='25%25' stop-color='%23c05c7e' /%3E%3Cstop offset='50%25' stop-color='%23f3826f' /%3E%3Cstop offset='100%25' stop-color='%23ffb961' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E") 1;
+        width: $size-image;
+        height: auto;
+    }
+
+    #button-top {
+        background-color: #3594FF;
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: $right-button; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        width: $size-button;
+        height: $size-button;
+        line-height: $size-button;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    %container-es { @include class-container(); }
+    %title-es { @include class-title(end, 2.5rem); }
+    %projects-es { @include class-projects(80%, 3rem, 10px); }
+
+    .grid-container {
+        @extend %container-es;
+        .title {
+            @extend %title-es;
+        }
+        .my-project {
+            @extend %projects-es;
+        }
+    }
+
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    %container-sd { @include class-container(); }
+    %title-sd { @include class-title(end, 3rem); }
+    %projects-sd { @include class-projects(80%, 3rem, 10px); }
+
+    .grid-container {
+        @extend %container-sd;
+        .title {
+            @extend %title-sd;
+        }
+        .my-project {
+            @extend %projects-sd;
+        }
+    }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    %container-md { @include class-container(); }
+    %title-md { @include class-title(end, 5rem); }
+    %projects-md { @include class-projects(50%, 4rem, 20px); }
+
+    .grid-container {
+        @extend %container-md;
+        .title {
+            @extend %title-md;
+        }
+        .my-project {
+            @extend %projects-md;
+        }
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    %container-ld { @include class-container(); }
+    %title-ld { @include class-title(end, 6rem); }
+    %projects-ld { @include class-projects(40%, 4rem, 30px); }
+
+    .grid-container {
+        @extend %container-ld;
+        .title {
+            @extend %title-ld;
+        }
+        .my-project {
+            @extend %projects-ld;
+        }
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    %container-el { @include class-container(); }
+    %title-el { @include class-title(end, 5rem); }
+    %projects-el { @include class-projects(30%, 4rem, 30px); }
+
+    .grid-container {
+        @extend %container-el;
+        .title {
+            @extend %title-el;
+        }
+        .my-project {
+            @extend %projects-el;
+        }
+    }
+
+}

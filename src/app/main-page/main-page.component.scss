@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
+
+.outer-circle {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    border-radius: 50%;
+    animation: rotate 1.5s linear infinite;
+}
+
+.outer-circle span {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    border-radius: 50%;
+}
+
+span:nth-child(1) {
+    filter: blur(5px);
+}
+
+span:nth-child(2) {
+    filter: blur(10px);
+}
+
+span:nth-child(3) {
+    filter: blur(25px);
+}
+
+span:nth-child(4) {
+    filter: blur(150px);
+}
+
+.inner-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    width: 180px;
+    position: absolute;
+    background: black;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    z-index: 9;
+}
+
+@keyframes rotate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@mixin class-container {
+    display: grid;
+    grid-template-rows: 15% 85%;
+    width: 100vw;
+    height: 100vh;
+}
+
+@mixin class-header($item1, $item2, $margin-left, $size-title) {
+    display: grid;
+    grid-template-columns: $item1 $item2;
+    background-color: black;
+    max-width: 100vw;
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .name {
+            color: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+            color: white;
+            margin-left: $margin-left;
+            font-size: $size-title;
+            font-family: 'Fira Mono', monospace;
+            letter-spacing: -7px;
+            margin-bottom: 0px;
+        }
+    }
+    .social-media {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .burger {
+            background-color: black;
+            color: #AFADAD;
+            border: 4px solid #AFADAD;
+            .icon {
+                transform: translateY(-.3rem) translateX(.05rem);
+            }
+        }
+    }
+}
+
+@mixin class-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../assets/images/1st-wallpaper.jpg);
+    .info {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        .text {
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+        }
+        .icon {
+            height: 5rem;
+            width: 5rem;
+            font-size: 5rem;
+            color: white;
+            background-color: transparent;
+        }
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 350px) {
+    %container-es { @include class-container(); }
+    %header-es { @include class-header(50%, 50%, .5rem, 2rem); }
+    %body-es { @include class-body(); }
+
+    .grid-container {
+        @extend %container-es;
+        .header {
+            @extend %header-es;
+            .title {
+
+            }
+            .social-media {
+                
+            }
+        }
+        .body {
+            @extend %body-es;
+            .info {
+
+            }
+        }
+    }
+
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 350px) {
+    %container-sd { @include class-container(); }
+    %header-sd { @include class-header(50%, 50%, .5rem, 2.5rem); }
+    %body-sd { @include class-body(); }
+
+    .grid-container {
+        @extend %container-sd;
+        .header {
+            @extend %header-sd;
+            .title {
+
+            }
+            .social-media {
+                
+            }
+        }
+        .body {
+            @extend %body-sd;
+            .info {
+
+            }
+        }
+    }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    %container-md { @include class-container(); }
+    %header-md { @include class-header(60%, 40%, 1rem, 4rem); }
+    %body-md { @include class-body(); }
+
+    .grid-container {
+        @extend %container-md;
+        .header {
+            @extend %header-md;
+            .title {
+
+            }
+            .social-media {
+                
+            }
+        }
+        .body {
+            @extend %body-md;
+            .info {
+
+            }
+        }
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    %container-ld { @include class-container(); }
+    %header-ld { @include class-header(70%, 30%, 3rem, 5rem); }
+    %body-ld { @include class-body(); }
+
+    .grid-container {
+        @extend %container-ld;
+        .header {
+            @extend %header-ld;
+            .title {
+
+            }
+            .social-media {
+                
+            }
+        }
+        .body {
+            @extend %body-ld;
+            .info {
+
+            }
+        }
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    %container-el { @include class-container(); }
+    %header-el { @include class-header(80%, 20%, 3rem, 4.5rem); }
+    %body-el { @include class-body(); }
+
+    .grid-container {
+        @extend %container-el;
+        .header {
+            @extend %header-el;
+            .title {
+
+            }
+            .social-media {
+                
+            }
+        }
+        .body {
+            @extend %body-el;
+            .info {
+
+            }
+        }
+    }
+
+}

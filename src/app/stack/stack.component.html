@@ -1,0 +1,13 @@
+<div id="myStack" class="grid-container">
+    <div class="title">
+        <h1 class="text">TECNOLOGÍAS MANEJADAS:</h1>
+    </div>
+    <div class="cards">
+        <mat-card class="card" *ngFor="let element of technologies">
+            <mat-card-header>
+                <mat-card-title>{{element.name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="{{element.image}}" alt="Photo of a Shiba Inu">
+        </mat-card>
+    </div>
+</div>
